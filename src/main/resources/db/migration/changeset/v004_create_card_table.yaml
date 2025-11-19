@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: v004-create-card-table
+      author: antonydanon
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: encrypted_card_number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: owner_id
+                  type: bigserial
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_card_owner
+                    references: users(id)
+              - column:
+                  name: expiry_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: money
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status_id
+                  type: bigserial
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_card_status
+                    references: card_statuses(id)

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/migration/changeset/v001_create_card_status_table.yaml
+  - include:
+      file: db/migration/changeset/v002_create_role_table.yaml
+  - include:
+      file: db/migration/changeset/v003_create_user_table.yaml
+  - include:
+      file: db/migration/changeset/v004_create_card_table.yaml
+  - include:
+      file: db/migration/changeset/v005_insert_card_statuses.yaml
+  - include:
+      file: db/migration/changeset/v006_insert_roles.yaml
